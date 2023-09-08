@@ -2,6 +2,7 @@ import { ContactsStyle } from "./ContactsList.styled";
 import PropTypes from 'prop-types';
 
 
+
 export const ContactsList = ({filteredContacts, onDeleteContact}) => {
     return(
         <ContactsStyle>

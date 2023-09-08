@@ -6,7 +6,6 @@ export const ContactsStyle = styled.ul`
     margin: 0;
     padding: 0;
     font-size: 20px;
-    margin-bottom: 160px;
     .list{
         margin: 0;
         margin-bottom: 20px;

@@ -1,24 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addNewContact, getAllContacts, deleteContactById } from "./contactOperations";
+import { addNewContact, getAllContacts, deleteContactById } from "./operations";
 
 
-export const selectContacts = state => state.contacts.contacts.items;
-export const selectFilter = state => state.contacts.filter;
-export const selectLoading = state => state.contacts.contacts.isLoading;
+const initialState = {
+  contacts: {
+    items: [],
+    isLoading: false,
+    error: null,
+  },
+  filter: '',
+};
 
 
 const contactsSlice = createSlice({
-
   name: 'contacts',
-  initialState: {
-    contacts: {
-      items: [],
-      isLoading: false,
-      error: null,
-    },
-    filter: '',
-  
-  },
+  initialState,
+
+    
   reducers: {
     onFilterChange: (state, {payload}) => {
       state.filter = payload    

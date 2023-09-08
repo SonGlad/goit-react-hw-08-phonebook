@@ -2,8 +2,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ContactsList } from 'components/ContactsList/ContactsList';
 import { Notification } from "components/Notification/Notification";
 import { NotificationFilter } from "components/NotificationFilter/NotificationFilter";
-import { deleteContactById } from 'redux/contactOperations';
-import { selectContacts, selectFilter, selectLoading } from 'redux/contactSlice';
+import { deleteContactById } from 'redux/Contacts/operations';
+import { selectContacts, selectLoading, selectFilter } from 'redux/Contacts/selectors';
 
 
 

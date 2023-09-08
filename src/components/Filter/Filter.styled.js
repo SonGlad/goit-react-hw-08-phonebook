@@ -11,7 +11,7 @@ export const FilterStyle = styled.form`
     margin-bottom: 20px;
     .input{
         width: 280px; 
-        height: 30px;
+        /* height: 30px; */
         margin-bottom: 30px; 
         background: rgba(0,0,0,0.3);
         border: none;

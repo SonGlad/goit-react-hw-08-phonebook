@@ -5,7 +5,7 @@ import { Filter } from './Filter/Filter';
 import { Contacts } from './Contacts/Contacts';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getAllContacts } from 'redux/contactOperations';
+import { getAllContacts } from 'redux/Contacts/operations';
 
 
 
