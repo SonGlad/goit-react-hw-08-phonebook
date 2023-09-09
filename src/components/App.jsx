@@ -1,34 +1,36 @@
-import { Section } from './Section/Section';
-import { Containers } from './Containers/Container';
-import { Form } from './Form/Form';
-import { Filter } from './Filter/Filter';
-import { Contacts } from './Contacts/Contacts';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { getAllContacts } from 'redux/Contacts/operations';
+import { SharedLayout } from "./SharedLayout";
+import { Routes, Route } from "react-router-dom";
+import { lazy, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { refreshCurrentUser } from "redux/Auth/auth-operations";
+
+
+
+const HomePage = lazy(() => import('../pages/Home/Home'));
+const RegisterPage = lazy(() => import('../pages/Register/Register'));
+const LoginPage = lazy(() => import('../pages/Login/Login'));
+const ContactsPage = lazy(() => import('../pages/Contacts/Contacts'));
 
 
 
 export const App = () => {
-
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getAllContacts())
-  })
+
+  useEffect(()=>{
+    dispatch(refreshCurrentUser());
+  },[dispatch])
+
 
 
   return(
-    <Section>
-      <Containers title={'Phonebook'}>
-        <Form />
-      </Containers>
-      <Containers title={'Filter'}>
-        <Filter/>
-      </Containers>
-      <Containers title={'Contacts'}>
-        <Contacts/>
-      </Containers>
-    </Section>
+    <Routes>
+      <Route path="/" element={<SharedLayout/>}>
+      <Route path="/" element={<HomePage/>}/>
+      <Route path='/register' element={<RegisterPage/>}/>
+      <Route path='/login' element={<LoginPage/>}/>
+      <Route path='/contacts' element={<ContactsPage/>}/>
+      </Route>
+    </Routes>
   );
 }; 

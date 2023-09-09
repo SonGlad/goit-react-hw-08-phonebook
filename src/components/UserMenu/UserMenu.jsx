@@ -1,20 +1,24 @@
 import { UserMenuStyled } from "./UserMenu.styled";
-// import { useDispatch } from 'react-redux';
-// import { logOut } from 'redux/auth/operations';
-// import { useAuth } from 'hooks';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUser } from "redux/Auth/auth-selectors";
+import { logOut } from "redux/Auth/auth-operations";
+import defaulAvatar from "../../images/cool-boy.png"
 
 
 
 export const UserMenu = () => {
-  // const dispatch = useDispatch();
-  // const { user } = useAuth();
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  
+  
 
   return (
     <UserMenuStyled>
-      <p className='username'>Welcome,</p>
-      {/* <button type="button" onClick={() => dispatch(logOut())}>
+      <img className="avatar" src={defaulAvatar} alt='' width='32' />
+      <p className="username">Welcome! You are logged in as {user}</p>
+      <button className="button" type="button" onClick={() => dispatch(logOut())}>
         Logout
-      </button> */}
+      </button>
     </UserMenuStyled>
   );
 };

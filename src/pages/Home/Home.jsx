@@ -2,7 +2,7 @@ import { HomeStyledContainer } from "./Home.styled";
 
 
   
-export default function Home() {
+const Home = () => {
     return (
         <HomeStyledContainer>
             <h1 className='home-title'>
@@ -13,4 +13,7 @@ export default function Home() {
             </h1>
         </HomeStyledContainer>
     );
-}
+};
+
+
+export default Home;

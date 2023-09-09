@@ -1,7 +1,7 @@
 import { FormStyle } from "./Form.styled";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewContact } from "redux/Contacts/operations";
-import { selectContacts } from "redux/Contacts/selectors";
+import { addNewContact } from "redux/Contacts/contacts-operations";
+import { selectContacts } from "redux/Contacts/contacts-selectors";
 
 
 

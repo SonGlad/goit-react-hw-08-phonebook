@@ -1,7 +1,5 @@
-import axios from "axios";
+import axios from "./ApiSettings";
 
-
-axios.defaults.baseURL = `https://64f761319d775408495382f5.mockapi.io`;
 
 
 export const addContact = async (contactData) => {
@@ -20,4 +18,3 @@ export const removeContact = async (id) => {
     const response = await axios.delete(`/contacts/${id}`);
     return response.data
 };
-
