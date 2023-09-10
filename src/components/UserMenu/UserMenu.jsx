@@ -1,6 +1,6 @@
 import { UserMenuStyled } from "./UserMenu.styled";
-import { useSelector, useDispatch } from 'react-redux';
-import { selectUser } from "redux/Auth/auth-selectors";
+import { useDispatch } from 'react-redux';
+import { useAuth } from "hooks/useAuth";
 import { logOut } from "redux/Auth/auth-operations";
 import defaulAvatar from "../../images/cool-boy.png"
 
@@ -8,7 +8,7 @@ import defaulAvatar from "../../images/cool-boy.png"
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
+  const {user} = useAuth();
   
   
 

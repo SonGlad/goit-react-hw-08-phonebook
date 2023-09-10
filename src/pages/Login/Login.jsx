@@ -5,8 +5,6 @@ import { logIn } from 'redux/Auth/auth-operations';
 
 
 const LoginForm = () => {
-
-
   const dispatch = useDispatch();
 
 

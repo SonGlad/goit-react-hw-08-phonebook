@@ -1,5 +1,7 @@
 export const selectUser = state => state.auth.user.name;
 
-export const loggedUser = state => state.auth.isLoggedIn;
+export const selectLoggedUser = state => state.auth.isLoggedIn;
 
-export const isLoading = state => state.auth.isLoading;
+export const selectLoading = state => state.auth.isLoading;
+
+export const selectRefreshing = state => state.auth.isRefreshing;

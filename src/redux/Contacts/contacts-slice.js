@@ -30,7 +30,7 @@ const contactsSlice = createSlice({
     })
     .addCase(addNewContact.fulfilled, (state, {payload}) => {
         state.contacts.isLoading = false;
-        state.contacts.items.unshift(payload)
+        state.contacts.items.unshift(payload);
         state.error = null;
     })
     .addCase(addNewContact.rejected, (state, {payload}) => {

@@ -1,15 +1,13 @@
 import { FilterStyle } from "./Filter.styled";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { onFilterChange } from "redux/Contacts/contacts-slice";
-import { selectFilter } from "redux/Contacts/contacts-selectors";
+import { useContacts } from "hooks/useContacts";
 
 
 
 export const Filter = () => {
-    
-
+    const {filter} = useContacts();
     const dispatch = useDispatch();
-    const filter = useSelector(selectFilter);
 
   
     const handleFilterChange = (event) => {

@@ -1,4 +1,4 @@
-import axios from "./ApiSettings";
+import axios from "./axiosSettings";
 
 
 

@@ -5,8 +5,6 @@ import { RegisterFormStyles } from './Register.styled';
 
 
 const RegisterForm = () => {
-
-
   const dispatch = useDispatch();
 
 
