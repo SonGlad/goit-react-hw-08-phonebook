@@ -2,14 +2,19 @@ import { styled } from "styled-components";
 
 
 export const HomeStyledContainer = styled.div`
-    min-Height: calc(100vh - 50px);
+    min-height: calc(100vh - 500px);
     display: flex;
-    align-Items: center;
-    justify-Content: center;
+    align-items: center;
+    justify-content: center;
 
     .home-title{
-        font-Weight: 500;
-        font-Size: 48;
-        text-Align: center;
+        font-weight: 700;
+        color: #fff; 
+        text-shadow: 0 0 10px rgba(0,0,0,0.3); 
+        letter-spacing:1px; 
+        text-align:center;
+        font-size: 60px;
+        margin-top: 0;
+        /* margin-bottom: 40px; */
     }
 `
