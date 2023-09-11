@@ -1,19 +1,21 @@
-import { HomeStyledContainer } from "./Home.styled";
+import { InitialHomePage } from "components/InitialHomePage/InitialHomePage";
+import { LoginHomePage } from "components/LogInHomePage/LoginHomePage";
+import { useAuth } from "hooks/useAuth";
 
 
   
 const Home = () => {
-    return (
-        <HomeStyledContainer>
-            <h1 className='home-title'>
-                Task manager welcome page{' '}
-                <span role="img" aria-label="Greeting icon">
-                💁‍♀️
-                </span>
-            </h1>
-        </HomeStyledContainer>
+    const { isLoggedIn } = useAuth();
+
+
+
+    return isLoggedIn ? (
+        <LoginHomePage/>
+    ) : (
+        <InitialHomePage/>
     );
 };
+
 
 
 export default Home;

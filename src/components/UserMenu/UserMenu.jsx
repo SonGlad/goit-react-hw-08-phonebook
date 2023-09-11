@@ -15,8 +15,8 @@ export const UserMenu = () => {
   return (
     <UserMenuStyled>
       <img className="avatar" src={defaulAvatar} alt='' width='32' />
-      <p className="username">Welcome! You are logged in as {user}</p>
-      <button className="button" type="button" onClick={() => dispatch(logOut())}>
+      <p className="username">Welcome! You are logged as <span className="user">"{user}"</span></p>
+      <button className="btn btn-primary btn-block btn-large" type="button" onClick={() => dispatch(logOut())}>
         Logout
       </button>
     </UserMenuStyled>

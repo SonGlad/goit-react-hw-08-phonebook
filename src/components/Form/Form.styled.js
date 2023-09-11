@@ -9,10 +9,7 @@ export const FormStyle = styled.form`
     justify-content: center;
     flex-direction: column;
     position: relative;
-    /* margin-bottom: 20px; */
-    .label{
-        /* margin-bottom: 20px; */
-    }
+
     .input-title{
         font-size:20px;
         position: absolute;
