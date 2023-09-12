@@ -9,6 +9,7 @@ const initialState = {
     error: null,
   },
   filter: '',
+  selectedCountryCode: '',
 };
 
 
@@ -20,7 +21,10 @@ const contactsSlice = createSlice({
   reducers: {
     onFilterChange: (state, {payload}) => {
       state.filter = payload    
-    }
+    },
+    setSelectedCountryCode: (state, {payload}) => {
+      state.selectedCountryCode = payload;
+    },
   },
   extraReducers: builder => {
     builder
@@ -70,4 +74,4 @@ const contactsSlice = createSlice({
 
 
 export const contactReducer = contactsSlice.reducer;
-export const { onFilterChange } = contactsSlice.actions;
+export const { onFilterChange, setSelectedCountryCode } = contactsSlice.actions;

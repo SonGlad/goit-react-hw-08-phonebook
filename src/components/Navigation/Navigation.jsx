@@ -17,10 +17,15 @@ export const Navigation = () => {
         Home
       </NavLink>
       {isLoggedIn && (
-        <NavLink className='link' to="/contacts">
-          Contacts
-        </NavLink>
-      )}  
+        <>
+          <NavLink className='link' to="/createcontacts">
+            Create Contacts
+          </NavLink>
+          <NavLink className='link' to="/contacts">
+            Сontacts
+          </NavLink>  
+        </>
+      )}
     </NavigationStyles>
   );
 };

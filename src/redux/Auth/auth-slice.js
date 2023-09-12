@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { register, logIn, logOut, refreshCurrentUser } from "./auth-operations";
 
 
+
 const initialState = {
     user: {name: null, email: null},
     token: null,
@@ -9,12 +10,19 @@ const initialState = {
     isLoading: false,
     isRefreshing: false,
     error: null,
+    currentRoute: null,
+    isRefreshed: false,
 };
 
 
 const authSlice = createSlice({
     name: 'auth',
     initialState,
+    reducers: {
+        setCurrentRoute: (state, action) => {
+          state.currentRoute = action.payload;
+        },
+    },
     extraReducers: builder =>{
         builder
         .addCase(register.pending, state =>{
@@ -27,6 +35,7 @@ const authSlice = createSlice({
             state.token = payload.token;
             state.isLoggedIn = true;
             state.error = null;
+            state.isRefreshed = false;
         })
         .addCase(register.rejected, (state, {payload}) => {
             state.isLoading = false;
@@ -44,6 +53,7 @@ const authSlice = createSlice({
             state.token = payload.token;
             state.isLoggedIn = true;
             state.error = null;
+            state.isRefreshed = false;
         })
         .addCase(logIn.rejected, (state, {payload}) => {
             state.isLoading = false;
@@ -74,6 +84,7 @@ const authSlice = createSlice({
             state.user = payload;
             state.isLoggedIn = true;
             state.isRefreshing = false;
+            state.isRefreshed = true; 
         })
         .addCase(refreshCurrentUser.rejected, (state, { payload }) => {
             state.isLoading = false;
@@ -84,5 +95,5 @@ const authSlice = createSlice({
 });
 
 
-
+export const { setCurrentRoute } = authSlice.actions;
 export const authReducer = authSlice.reducer;

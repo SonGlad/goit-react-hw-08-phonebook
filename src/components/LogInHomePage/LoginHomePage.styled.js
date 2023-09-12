@@ -53,6 +53,14 @@ export const LoginHomeStyledContainer = styled.div`
         transform: scale(1.15);
         }
     }
+    .action-picture-create{
+        width: 180px;
+        transition: transform 0.3s;
+
+        &:hover, &:focus {
+        transform: scale(1.15);
+        }
+    }
     .action-picture-logout{
         width: 160px;
         transition: transform 0.3s;

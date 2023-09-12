@@ -26,10 +26,21 @@ export const RegisterFormStyles = styled.form`
     position: relative;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.6);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.6);
-    .input-title{
-        font-size:20px;
+    .descr-div{
         position: absolute;
-        transform: translateY(-20px);
+        transform: translateY(-15px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+    .icon{
+        /* fill: #fff; */
+        fill: transparent;
+        stroke: #fff;
+    }
+    .input-title{
+        font-size: 20px;
     }
     .input{
         width: 340px; 

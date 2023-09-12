@@ -2,29 +2,84 @@ import { styled } from "styled-components";
 
 
 export const ContactsStyle = styled.ul`
+    width: 100vw;
     list-style: none;
     margin: 0;
     padding: 0;
     font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-left: 30px;
+    padding-right: 30px;
     .list{
-        margin: 0;
-        margin-bottom: 20px;
+        margin: 0 10px 30px 10px;
+        padding: 5px;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+        width: 510px;
+        -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.6);
+        box-shadow: 0 10px 20px 0 rgba(0,0,0,0.6);
+        border-radius: 5px;
+    }
+    .cont-title{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .left-cont{
+        margin-left: 50px;
+    }
+    .cont-sum{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+    .icon{
+        fill: #ffffff;
+    }
+    .title-user{
+        
+    }
+    .title-number{
+        margin-right: 130px;
+    }
+    .cont-list{
+        display: flex;
+        align-items: center;
+    }
+    .cont-list-title{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        flex-wrap: nowrap;
+        margin-right: 10px;
     }
     .list-name{
         margin: 0;
-        margin-right: 10px;
+        max-width: 232px;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
     }
+    
     .list-number{
-        margin: 0;
+        margin: 0;  
         margin-right: 20px;
+        margin-left: auto;
+
     }
     .btn { 
         display: inline-block;
         display: inline;
-        margin-left: auto;
+        /* margin-left: auto; */
         zoom: 1; 
         padding: 4px 10px 4px; 
         margin-bottom: 0; 

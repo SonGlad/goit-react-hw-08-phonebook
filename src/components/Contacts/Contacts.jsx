@@ -4,6 +4,7 @@ import { Notification } from "components/Notification/Notification";
 import { NotificationFilter } from "components/NotificationFilter/NotificationFilter";
 import { deleteContactById } from 'redux/Contacts/contacts-operations';
 import { useContacts } from 'hooks/useContacts';
+import { formatPhoneNumber } from "../../utils/formatPhoneNumber";
 
 
 
@@ -25,11 +26,16 @@ export const Contacts = () => {
     };
 
 
+    const formattedContacts = filteredContacts.map(contact => (
+        {...contact, number: formatPhoneNumber(contact.number)}
+    ));
+
+
     if (isLoading) {
         return <p>Loading data...</p>
     }
 
-    
+
 
     return (
         <>
@@ -37,7 +43,7 @@ export const Contacts = () => {
             <Notification message="There are no contacts in your list, sorry" />
             ) : filteredContacts.length > 0 ? (
             <ContactsList
-                filteredContacts={filteredContacts}
+                filteredContacts={formattedContacts}
                 onDeleteContact={onDeleteContact}
             />
             ) : (

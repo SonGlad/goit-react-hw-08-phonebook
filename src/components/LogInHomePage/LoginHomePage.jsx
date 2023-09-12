@@ -6,6 +6,8 @@ import { logOut } from "redux/Auth/auth-operations";
 import helloPicture from "../../images/pngegg.png";
 import contactPicture from "../../images/contacts.png";
 import logoutPicture from "../../images/logout.png";
+import createPicture from "../../images/vecteezy.png";
+
 
 
 
@@ -29,7 +31,10 @@ export const LoginHomePage = () => {
                     </NavLink>
                 </div>
                 <div className="action-container">
-                    <p className="action-text">or</p>
+                    <p className="action-text">Create Contacts</p>
+                    <NavLink className='nav-link' to="/createcontacts">
+                        <img className="action-picture-create" src={createPicture} alt="" width='250'/>
+                    </NavLink>
                 </div>
                 <div className="action-container">
                     <p className="action-text">Logout action</p>

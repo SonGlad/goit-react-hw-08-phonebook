@@ -9,11 +9,21 @@ export const FormStyle = styled.form`
     justify-content: center;
     flex-direction: column;
     position: relative;
-
-    .input-title{
-        font-size:20px;
+    .descr-div{
         position: absolute;
-        transform: translateY(-20px);
+        transform: translateY(-15px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+    .icon{
+        /* fill: #fff; */
+        fill: transparent;
+        stroke: #fff;
+    }
+    .input-title{
+        font-size: 20px;
     }
     .input{
         width: 340px; 
@@ -40,7 +50,6 @@ export const FormStyle = styled.form`
     }
     .btn { 
         display: inline-block;
-        display: inline; 
         zoom: 1; 
         padding: 4px 10px 4px; 
         margin-bottom: 0; 
