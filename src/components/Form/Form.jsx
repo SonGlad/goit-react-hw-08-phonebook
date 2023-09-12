@@ -4,6 +4,8 @@ import { addNewContact } from "redux/Contacts/contacts-operations";
 import { useContacts } from "hooks/useContacts";
 import {ReactComponent as UserIcon} from "../../images/user.svg";
 import {ReactComponent as PnoneIcon} from "../../images/phone.svg";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -22,15 +24,15 @@ export const Form = () => {
             contact => 
             contact.number === number || 
             contact.name.toLowerCase() === name.toLowerCase())){
-              alert(`${name} or entered ${number} number is already in contacts.`);
-              return;
+                toast.warning(`${name} or entered ${number} number is already in contacts.`);
+                return;
             }
         else if (!/^\d+$/.test(number)) {
-            alert('Please enter a valid number.');
+            toast.warning('Please enter a valid number.');
             return;
         }
         else if (countryCode === '') {
-            alert('Please choose your country.');
+            toast.warning('Please choose your country.');
             return;
         }
 

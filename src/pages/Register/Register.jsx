@@ -8,7 +8,6 @@ import {ReactComponent as PasswordIcon} from "../../images/password.svg";
 
 
 
-
 const RegisterForm = () => {
   const dispatch = useDispatch();
 

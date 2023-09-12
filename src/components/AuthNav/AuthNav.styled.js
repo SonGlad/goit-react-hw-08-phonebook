@@ -13,11 +13,11 @@ export const AuthNavStyles = styled.div`
         transition: color 0.25s;
 
         &:hover, &:focus {
-        color: #f21331;
+        color: #9BB537;
         }
     }
 
     .link.active {
-        color: #f21331;
+        color: #9BB537;
     }
 `

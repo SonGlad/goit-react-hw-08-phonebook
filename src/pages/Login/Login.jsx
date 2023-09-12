@@ -21,8 +21,9 @@ const LoginForm = () => {
       })
     );
     form.reset();
-  };
 
+  };
+  
 
 
   return (

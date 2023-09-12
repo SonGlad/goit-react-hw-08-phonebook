@@ -5,6 +5,7 @@ import { NotificationFilter } from "components/NotificationFilter/NotificationFi
 import { deleteContactById } from 'redux/Contacts/contacts-operations';
 import { useContacts } from 'hooks/useContacts';
 import { formatPhoneNumber } from "../../utils/formatPhoneNumber";
+import { DataLoading } from 'components/CustomLoaders/CustomLoaders';
 
 
 
@@ -32,7 +33,7 @@ export const Contacts = () => {
 
 
     if (isLoading) {
-        return <p>Loading data...</p>
+        return <DataLoading/>
     }
 
 

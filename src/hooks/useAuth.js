@@ -4,26 +4,26 @@ import {
     selectLoggedUser, 
     selectLoading, 
     selectRefreshing,
-    initialRoute,
-    selectRefreshed, 
+    // initialRoute,
+    // selectRefreshed, 
 } from 'redux/Auth/auth-selectors';
 
 
 
 export const useAuth = () => {
-    const isLoading = useSelector(selectLoading);
+    const isLoadingAuth = useSelector(selectLoading);
     const isLoggedIn = useSelector(selectLoggedUser);
     const user = useSelector(selectUser);
     const isRefreshing = useSelector(selectRefreshing);
-    const isCurrentRoute = useSelector(initialRoute);
-    const isRefreshed = useSelector(selectRefreshed);
+    // const isCurrentRoute = useSelector(initialRoute);
+    // const isRefreshed = useSelector(selectRefreshed);
 
     return {
-        isLoading,
+        isLoadingAuth,
         isLoggedIn,
         user,
         isRefreshing,
-        isCurrentRoute,
-        isRefreshed,
+        // isCurrentRoute,
+        // isRefreshed,
     };
 };
