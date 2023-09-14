@@ -3,15 +3,15 @@ import { styled } from "styled-components";
 
 export const FilterStyle = styled.form`
     width: 400px;
-    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 20px;
+    .label{
+        font-size: 20px;
+    }
     .input{
         width: 280px; 
-        margin-bottom: 30px; 
         background: rgba(0,0,0,0.3);
         border: none;
         outline: none;

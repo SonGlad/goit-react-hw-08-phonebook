@@ -2,7 +2,6 @@ import { styled } from "styled-components";
 
 
 export const ContactsStyle = styled.ul`
-    width: 100vw;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -19,20 +18,94 @@ export const ContactsStyle = styled.ul`
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
-        width: 510px;
+        /* width: 511px; */
         -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.6);
         box-shadow: 0 10px 20px 0 rgba(0,0,0,0.6);
         border-radius: 5px;
+        position: relative;
     }
-    .cont-title{
+    .checkbox {
+        width: 20px;
+        height: 20px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        margin-right: 10px;
+        opacity: 0;
+    }
+    
+    .custom-checkbox{
         display: flex;
         align-items: center;
-        width: 100%;
-        justify-content: space-around;
+        justify-content: center;
     }
-    .left-cont{
-        margin-left: 50px;
+    .custom-checkbox-before, .custom-checkbox-after{
+        position: absolute;
+        left: 5px;
+        top: 27px;
+        pointer-events: none;
+    }
+    .custom-checkbox-before{
+        opacity: 1;
+        transition: opacity 0.25s;
+    }
+    .custom-checkbox-after{
+        opacity: 0;
+        transition: opacity 0.25s;
+    }
+     .checkbox:focus + .custom-checkbox > .custom-checkbox-before{
+        outline: 3px solid #9BB537;
+        border-radius: 2px;
+        outline-offset: -3px; 
+    }
+
+    .checkbox:checked + .custom-checkbox > .custom-checkbox-after{
+        opacity: 1;
+    }
+    .checkbox:checked + .custom-checkbox > .custom-checkbox-before{
+        opacity: 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .user-container{
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 232px;
+        margin-right: auto;
     }
     .cont-sum{
         display: flex;
@@ -43,43 +116,41 @@ export const ContactsStyle = styled.ul`
     .icon{
         fill: #ffffff;
     }
-    .title-user{
-        
-    }
-    .title-number{
-        margin-right: 130px;
-    }
-    .cont-list{
-        display: flex;
-        align-items: center;
-    }
-    .cont-list-title{
+    .list-name-container{
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        flex-wrap: nowrap;
-        margin-right: 10px;
     }
     .list-name{
+        display: -webkit-box;
         margin: 0;
         max-width: 232px;
         text-overflow: ellipsis;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
-        display: -webkit-box;
     }
-    
+    .number-container{
+        width: 183px;
+        margin-right: 10px;
+    }
+    .list-number-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .list-number{
         margin: 0;  
-        margin-right: 20px;
         margin-left: auto;
-
     }
+    .button-container{
+        height: 100%;
+        margin-top: 30px;
+    }
+
     .btn { 
         display: inline-block;
         display: inline;
-        /* margin-left: auto; */
         zoom: 1; 
         padding: 4px 10px 4px; 
         margin-bottom: 0; 

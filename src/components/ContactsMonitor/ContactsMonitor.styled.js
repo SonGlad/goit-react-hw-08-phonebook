@@ -1,68 +1,83 @@
 import { styled } from "styled-components";
 
 
-export const FormStyle = styled.form`
-    width: 400px;
-    height: 250px;
+export const ContactsMonitorStyles = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    position: relative;
-    .descr-div{
-        position: absolute;
-        transform: translateY(-15px);
+    margin-bottom: 30px;
+
+    .selects-checkbox-container{
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 5px;
+        position: relative;
+        flex-direction: column;
+        margin-right: 15px;
     }
-    .icon{
-        fill: transparent;
-        stroke: #fff;
-    }
-    .input-title{
-        font-size: 20px;
-    }
-    .input{
-        width: 340px; 
-        height: 40px;
-        margin-bottom: 30px; 
-        background: rgba(0,0,0,0.3);
-        border: none;
+    .checkbox {
+        width: 20px;
+        height: 20px;
         outline: none;
-        padding: 5px;
-        font-size: 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0;
+    }
+    
+    .custom-checkbox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .custom-checkbox-before, .custom-checkbox-after{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        pointer-events: none;
+    }
+    .custom-checkbox-before{
+        opacity: 1;
+        transition: opacity 0.25s;
+    }
+    .custom-checkbox-after{
+        opacity: 0;
+        transition: opacity 0.25s;
+    }
+     .checkbox:focus + .custon-data > .custom-checkbox > .custom-checkbox-before{
+        outline: 3px solid #9BB537;
+        border-radius: 2px;
+        outline-offset: -3px; 
+    }
+    .checkbox:checked + .custon-data > .custom-checkbox > .custom-checkbox-after{
+        opacity: 1;
+    }
+    .checkbox:checked + .custon-data > .custom-checkbox > .custom-checkbox-before{
+        opacity: 0;
+    }
+    .all-text{
+        font-size: 15px;
         color: #fff;
-        text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
-        border: 1px solid rgba(0,0,0,0.3);
-        border-radius: 4px;
-        box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
-        -webkit-transition: box-shadow .5s ease;
-        -moz-transition: box-shadow .5s ease;
-        -o-transition: box-shadow .5s ease;
-        -ms-transition: box-shadow .5s ease;
-        transition: box-shadow .5s ease;
+        transition: color 0.25s;
     }
-    .input-below{
-        margin-bottom: 5px;
-    }
-    .input:focus { 
-        box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); 
-    }
-    .descr-text{
-        font-weight: 400;
-        font-size: 13px;
+    .checkbox:checked + .custon-data > .all-text{
         color: #9BB537;
-        margin-bottom: 30px;
     }
- 
+
+    .selects-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 30px;
+        margin-right: 40px;
+    }
+
     .btn { 
         display: inline-block;
         zoom: 1; 
         padding: 4px 10px 4px; 
         margin-bottom: 0; 
-        font-size: 13px; 
+        font-size: 25px; 
         line-height: 18px; 
         color: #333333; 
         text-align: center;
@@ -89,7 +104,7 @@ export const FormStyle = styled.form`
     }
     .btn-large { 
         padding: 9px 14px; 
-        font-size: 15px; 
+        font-size: 20px; 
         line-height: normal; 
         -webkit-border-radius: 5px; 
         -moz-border-radius: 5px; 
@@ -128,7 +143,7 @@ export const FormStyle = styled.form`
         background-color: #4a77d4;
     }
     .btn-block { 
-        width: 200px; 
+        /* width: 120px;  */
         height: 40px;
         display:block; 
     }

@@ -22,9 +22,16 @@ const authPersistConfig = {
 };
 
 
+const contactsPersistConfig = {
+  key: 'contacts',
+  storage,
+  whitelist: ['selectedCheckedCheckbox'],
+};
+
+
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
-  contacts: contactReducer,
+  contacts: persistReducer(contactsPersistConfig, contactReducer)
 })
 
 

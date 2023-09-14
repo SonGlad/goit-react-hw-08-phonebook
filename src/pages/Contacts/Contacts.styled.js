@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 
 export const RedirectLinkStyles = styled.div`
-    padding: 25px;
+    /* padding: 25px; */
 
     .btn { 
         display: inline-block;

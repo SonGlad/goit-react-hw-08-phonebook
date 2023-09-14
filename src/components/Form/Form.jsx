@@ -61,22 +61,23 @@ export const Form = () => {
                         id='name'
                     />
                 </label>
-                <label htmlFor='number'>
+                <label className='label' htmlFor='number'>
                     <div className='descr-div'>
                         <PnoneIcon className="icon" width="30" height="30"/>
                         <span className="input-title">Number</span>
                     </div>
-                    <input className="input"
+                    <input className="input input-below"
                         type="tel"
                         name="number"
                         title="Phone number must be digits only. Without spaces, dashes, parentheses or +"
                         required
-                        placeholder='459-12-56'
+                        placeholder='459125687'
                         minLength="1"
                         maxLength="9"
                         id='number'
                     />
                 </label>
+                <p className="descr-text">&#8727; Type the number in the format mentioned above only.</p>
                 <button 
                     className="btn btn-primary btn-block btn-large" 
                     type='submit'
