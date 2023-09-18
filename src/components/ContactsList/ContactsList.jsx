@@ -7,40 +7,49 @@ import {ReactComponent as CheckBoxIcon} from "../../images/rectangle.svg";
 
 
 
-export const ContactsList = ({filteredContacts, onDeleteContact, checkbox, handleCheckboxChange}) => {
+export const ContactsList = ({
+    filteredContacts, 
+    onDeleteContact, 
+    checkbox, 
+    handleCheckboxChange, 
+    handleClickContainer}) => {
 
 
     return(
         <ContactsStyle>
             {filteredContacts.map(({id, name, number}) => (
                 <li className="list" key={id}>
-                    <input className="checkbox"
-                    type="checkbox"
-                    name="user_agreement" 
-                    id={id}
-                    checked={checkbox.includes(id)}
-                    onChange={() => handleCheckboxChange(id)}
-                    />
-                    <div className="custom-checkbox">
-                        <CheckBoxIcon className="custom-checkbox-before" width="20" height="20"/>
-                        <CheckedIcon className="custom-checkbox-after" width="20" height="20"/>
-                    </div>
-                    <div className="user-container">
-                        <div className="cont-sum">
-                            <UserIcon className="icon" width="30" height="25"/>
-                            <p className="title-user">User:</p>
-                        </div>
-                        <div className="list-name-container">
-                            <h3 className="list-name">{name}</h3>:
+                    <div className='checkbox-container'>
+                        <input className="checkbox"
+                        type="checkbox"
+                        name="user_agreement" 
+                        id={id}
+                        checked={checkbox.includes(id)}
+                        onChange={() => handleCheckboxChange(id)}
+                        />
+                        <div className="custom-checkbox">
+                            <CheckBoxIcon className="custom-checkbox-before" width="20" height="20"/>
+                            <CheckedIcon className="custom-checkbox-after" width="20" height="20"/>
                         </div>
                     </div>
-                    <div className="number-container">
-                        <div className="cont-sum">
-                             <PnoneIcon className="icon" width="30" height="25"/>
-                            <p className="title-number">Number:</p>
+                    <div className='container-for-modal' id={id} onClick={() => handleClickContainer(id)}>
+                        <div className="user-container">
+                            <div className="cont-sum">
+                                <UserIcon className="icon" width="30" height="25"/>
+                                <p className="title-user">User:</p>
+                            </div>
+                            <div className="list-name-container">
+                                <h3 className="list-name">{name}</h3>:
+                            </div>
                         </div>
-                        <div className="list-number-container">
-                            <p className="list-number">{number}</p>
+                        <div className="number-container">
+                            <div className="cont-sum">
+                                <PnoneIcon className="icon" width="30" height="25"/>
+                                <p className="title-number">Number:</p>
+                            </div>
+                            <div className="list-number-container">
+                                <p className="list-number">{number}</p>
+                            </div>
                         </div>
                     </div>
                     <div className="button-container">
@@ -72,4 +81,5 @@ ContactsList.propTypes ={
     checkbox: PropTypes.arrayOf(PropTypes.string.isRequired),
     onDeleteContact: PropTypes.func.isRequired,
     handleCheckboxChange: PropTypes.func.isRequired,
+    handleClickContainer: PropTypes.func.isRequired,
 };

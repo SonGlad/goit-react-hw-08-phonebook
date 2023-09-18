@@ -92,13 +92,11 @@ export const CountrySearchStyled = styled.div`
     z-index: -1;
     visibility: hidden;
     opacity: 0;
-    /* scale: 0; */
     transition: 
     height 0.25s ease-in-out, 
     visibility 0s ease-in-out 0.25s, 
     opacity 0s ease-in-out 0.20s, 
     z-index 0s ease-in-out 0.25s,
-    /* scale 0s ease-in-out 0.25s, */
     top 0s ease-in-out 0.25s;
 }
 
@@ -108,13 +106,11 @@ export const CountrySearchStyled = styled.div`
     z-index: 1;
     visibility: visible;
     opacity: 1;
-    /* scale: 1; */
     transition: 
     height 0.25s ease-in-out, 
     visibility 0s ease-in-out, 
     opacity 0.1s ease-in-out, 
     z-index 0s ease-in-out,
-    /* scale 0s ease-in-out, */
     top 0s ease-in-out;
 }
 

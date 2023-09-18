@@ -1,87 +1,73 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 
-export const ContactsStyle = styled.ul`
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
+export const BackdropModalStyle = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding-left: 30px;
-    padding-right: 30px;
-    .list{
-        margin: 0 10px 30px 10px;
-        padding: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.6);
-        box-shadow: 0 10px 20px 0 rgba(0,0,0,0.6);
-        border-radius: 5px;
-    }
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.8);
     
-    .checkbox-container{
+    
+    .modal{
         position: relative;
-        margin-right: 10px;
+        padding: 20px;
+        padding-top: 35px;
+        border-radius: 20px;
+        min-width: 600px;
+        min-height: 150px;
+        background: #092756;
+        background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
+        background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+        background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+        background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+        background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+        line-height: 1.5;
+        transition: min-height 350ms cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .checkbox {
-        width: 20px;
-        height: 20px;
+
+    .modal-open-for-form{
+        min-height: 770px;
+    }
+
+    .info-container{
+        display: flex;
+        gap: 15px;
+    }
+
+    .close-btn{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        padding: 0;
         outline: none;
         border: none;
+        line-height: 0.7;
+        background-color: transparent;
         cursor: pointer;
-        opacity: 0;
-    }
-    
-    .custom-checkbox{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .custom-checkbox-before, .custom-checkbox-after{
-        position: absolute;
-        left: 0px;
-        top: 2px;
-        pointer-events: none;
-    }
-    .custom-checkbox-before{
-        opacity: 1;
-        transition: opacity 0.25s;
-    }
-    .custom-checkbox-after{
-        opacity: 0;
-        transition: opacity 0.25s;
-    }
-     .checkbox:focus + .custom-checkbox > .custom-checkbox-before{
-        outline: 3px solid #9BB537;
-        border-radius: 2px;
-        outline-offset: -3px; 
-    }
-
-    .checkbox:checked + .custom-checkbox > .custom-checkbox-after{
-        opacity: 1;
-    }
-    .checkbox:checked + .custom-checkbox > .custom-checkbox-before{
-        opacity: 0;
-    }
-
-    .container-for-modal{
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        stroke: #ffffff;
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        &:hover,
+        &:focus{
+        stroke:  #9BB537;
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        transform: scale(1.1) rotate(90deg);
+        transform-origin: center;
+        }
     }
 
     .user-container{
         margin-right: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 232px;
+        width: 295px;
         margin-right: auto;
+        font-weight: 700;
+        font-size: 30px;
     }
     .cont-sum{
         display: flex;
@@ -91,6 +77,8 @@ export const ContactsStyle = styled.ul`
     }
     .icon{
         fill: #ffffff;
+        width: 45px;
+        height: 40px;
     }
     .list-name-container{
         display: flex;
@@ -101,34 +89,32 @@ export const ContactsStyle = styled.ul`
     .list-name{
         display: -webkit-box;
         margin: 0;
-        max-width: 232px;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
     }
     .number-container{
-        width: 183px;
-        margin-right: 10px;
+        width: 295px;
+        font-weight: 700;
+        font-size: 30px;
     }
     .list-number-container{
         display: flex;
         align-items: center;
         justify-content: center;
-        overflow: hidden;
     }
     .list-number{
-        max-width: 183px;
         margin: 0;  
         margin-left: auto;
-        display: -webkit-box;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
     }
-    
-    .button-container{
-        height: 100%;
-        margin-top: 30px;
+
+    .btn-cont{
+        width: 100%;
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .update{
+        justify-content: flex-end;
     }
 
     .btn { 
@@ -204,7 +190,7 @@ export const ContactsStyle = styled.ul`
     }
     .btn-block { 
         width: 60px; 
-        height: 25px;
+        height: 30px;
         display:block; 
     }
 
@@ -213,5 +199,35 @@ export const ContactsStyle = styled.ul`
     -ms-box-sizing:border-box;
     -o-box-sizing:border-box; 
     box-sizing:border-box; 
+    }
+
+    .update-form{
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 0;
+        width: calc(100% - 40px);
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        padding-top: 0;
+        padding-bottom: 0px;
+        transition: height 350ms cubic-bezier(0.4, 0, 0.2, 1),
+        padding-top 350ms cubic-bezier(0.4, 0, 0.2, 1),
+        padding-bottom 350ms cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 350ms cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .update-form-visible{
+        height: 550px;
+        padding-top: 35px;
+        padding-bottom: 75px;
+        opacity: 1;
+        visibility: visible;
     }
 `

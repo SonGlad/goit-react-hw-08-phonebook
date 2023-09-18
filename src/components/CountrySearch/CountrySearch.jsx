@@ -1,10 +1,10 @@
+import { CountrySearchStyled } from './CountrySearch.styled';
+import {ReactComponent as WorldIcon} from "../../images/world.svg";
 import { useState, useEffect, useRef } from 'react';
 import { nanoid } from 'nanoid';
 import { countryCodes } from 'utils/countryCodes';
-import { CountrySearchStyled } from './CountrySearch.styled';
-import {ReactComponent as WorldIcon} from "../../images/world.svg";
 import { useDispatch } from "react-redux";
-import {setSelectedCountryCode} from "../../redux/Contacts/contacts-slice";
+import { setSelectedCountryCode } from 'redux/Contacts/contacts-slice';
 
 
 countryCodes.sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
@@ -76,7 +76,7 @@ export const CountrySearch = () => {
                 <p className="text-search">Country code</p>
             </div>
             <div className="custom-select" ref={dropdownRef}>
-                <form className="country-form">
+                <form className="country-form" autoComplete='off'>
                     <label className="label" htmlFor="countryfilter">
                     <input
                         className="input"

@@ -12,8 +12,8 @@ import 'react-toastify/dist/ReactToastify.css';
 export const Form = () => {
     const {contacts, countryCode} = useContacts();
     const dispatch = useDispatch();
-
-
+   
+    
     const onFormSubmit = (event) => {
         event.preventDefault();
         const name = event.target.name.value;
@@ -36,12 +36,18 @@ export const Form = () => {
             return;
         }
 
+        
+        const codeValue = countryCode.split(":")[1].trim();
+        const digits = number.split("");
+        const formattedNumber = `${digits.slice(0, 2).join('')}-${digits.slice(2, 5).join('')}-${digits.slice(5, 7).join('')}-${digits.slice(7, 9).join('')}`;
+        
 
-        const phoneNumber = `${countryCode}${number}`;
-        dispatch(addNewContact({name, number: phoneNumber}))
+        const phoneNumber = `${codeValue }-${formattedNumber}`;
+        dispatch(addNewContact({name, number: phoneNumber}));
         event.target.reset();
     }; 
-
+    
+        
 
 
     return (

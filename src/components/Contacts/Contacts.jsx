@@ -4,10 +4,9 @@ import { NotificationFilter } from "components/NotificationFilter/NotificationFi
 import { DataLoading } from 'components/CustomLoaders/CustomLoaders';
 import { ContactsMonitor } from 'components/ContactsMonitor/ContactsMonitor';
 import { deleteContactById } from 'redux/Contacts/contacts-operations';
-import { toggleCheckboxState, toggleSelectAllCheckbox } from 'redux/Contacts/contacts-slice';
+import { toggleCheckboxState, toggleSelectAllCheckbox, setSelectedItemIDForModal } from 'redux/Contacts/contacts-slice';
 import { useDispatch } from 'react-redux';
 import { useContacts } from 'hooks/useContacts';
-import { formatPhoneNumber } from 'utils/formatPhoneNumber';
 
 
 
@@ -29,11 +28,7 @@ export const Contacts = () => {
     };
 
 
-    const formattedContacts = filteredContacts.map(contact => (
-        {...contact, number: formatPhoneNumber(contact.number)}
-    ));
-    
-    
+      
     const handleCheckboxChange = (contactId) => {
         dispatch(toggleCheckboxState({ contactId }));
     };
@@ -51,12 +46,17 @@ export const Contacts = () => {
     };
 
 
-    const Checked = checkbox.length > 0 && checkbox.length === formattedContacts.length;
+    const Checked = checkbox.length > 0 && checkbox.length === filteredContacts.length;
 
 
     if (isLoading) {
         return <DataLoading/>
     }
+
+
+    const handleClickContainer = (itemId) => {
+        dispatch(setSelectedItemIDForModal(itemId));
+    };
 
 
 
@@ -72,10 +72,11 @@ export const Contacts = () => {
             <Notification message="There are no contacts in your list, sorry" />
             ) : filteredContacts.length > 0 ? (
             <ContactsList
-                filteredContacts={formattedContacts}
+                filteredContacts={filteredContacts}
                 onDeleteContact={onDeleteContact}
                 checkbox={checkbox}
                 handleCheckboxChange={handleCheckboxChange}
+                handleClickContainer={handleClickContainer}
             />
             ) : (
             <NotificationFilter notification="No contacts found that match the filter" />

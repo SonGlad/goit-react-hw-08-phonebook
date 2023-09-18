@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addNewContact, getAllContacts, deleteContactById } from "./contacts-operations";
+import { 
+  addNewContact, 
+  getAllContacts, 
+  deleteContactById, 
+  updateContactById, 
+} from "./contacts-operations";
 
 
 const initialState = {
@@ -11,6 +16,7 @@ const initialState = {
   filter: '',
   selectedCountryCode: '',
   selectedCheckedCheckbox: [],
+  selectedItemIDForModal: '',
 };
 
 
@@ -51,6 +57,14 @@ const contactsSlice = createSlice({
       } else {
         state.selectedCheckedCheckbox = [...filteredContactIds];
       }
+    },
+
+    setSelectedItemIDForModal: (state, {payload}) => {
+      state.selectedItemIDForModal = payload;
+    },
+    
+    clearSelectedItemIDForModal: (state) => {
+      state.selectedItemIDForModal = '';
     },
 
   },
@@ -97,6 +111,22 @@ const contactsSlice = createSlice({
       state.contacts.isLoading = false;
       state.error = payload;
     })
+
+    .addCase(updateContactById.pending, state => {
+      state.contacts.isLoading = true;
+      state.error = null;
+    })
+    .addCase(updateContactById.fulfilled, (state, { payload }) => {
+        state.contacts.isLoading = false;
+        const updatedIndex = state.contacts.items.findIndex(contact => contact.id === payload.id);
+        if (updatedIndex !== -1) {
+            state.contacts.items[updatedIndex] = payload;
+        }
+    })
+    .addCase(updateContactById.rejected, (state, { payload }) => {
+        state.contacts.isLoading = false;
+        state.error = payload;
+    })
   }
 })
 
@@ -107,5 +137,7 @@ export const {
   onFilterChange, 
   setSelectedCountryCode, 
   toggleCheckboxState, 
-  toggleSelectAllCheckbox 
+  toggleSelectAllCheckbox,
+  setSelectedItemIDForModal, 
+  clearSelectedItemIDForModal, 
 } = contactsSlice.actions;

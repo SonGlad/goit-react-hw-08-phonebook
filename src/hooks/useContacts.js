@@ -5,6 +5,7 @@ import {
     selectLoading, 
     selectCountryCode,
     selectCheckbox,
+    selectItemIDForModal,
 } from "redux/Contacts/contacts-selectors";
 
 
@@ -15,6 +16,7 @@ export const useContacts = () => {
     const filter = useSelector(selectFilter);
     const countryCode = useSelector(selectCountryCode);
     const checkbox = useSelector(selectCheckbox);
+    const itemIDForModal = useSelector(selectItemIDForModal);
 
     return {
         isLoading,
@@ -22,5 +24,6 @@ export const useContacts = () => {
         filter,
         countryCode,
         checkbox,
+        itemIDForModal,
     };
 };

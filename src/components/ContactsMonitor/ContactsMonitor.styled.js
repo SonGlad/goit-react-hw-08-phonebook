@@ -69,10 +69,12 @@ export const ContactsMonitorStyles = styled.div`
         justify-content: center;
         gap: 10px;
         font-size: 30px;
-        margin-right: 40px;
+    }
+    .button-container{
+        margin-left: 40px; 
     }
 
-    .btn { 
+    .btn {
         display: inline-block;
         zoom: 1; 
         padding: 4px 10px 4px; 
