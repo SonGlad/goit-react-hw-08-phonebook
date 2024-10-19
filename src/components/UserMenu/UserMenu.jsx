@@ -10,7 +10,6 @@ export const UserMenu = () => {
   const dispatch = useDispatch();
   const {user} = useAuth();
   
-  
 
   return (
     <UserMenuStyled>

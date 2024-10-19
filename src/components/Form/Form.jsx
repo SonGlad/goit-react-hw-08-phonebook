@@ -43,7 +43,7 @@ export const Form = () => {
         
 
         const phoneNumber = `${codeValue }-${formattedNumber}`;
-        dispatch(addNewContact({name, number: phoneNumber}));
+        dispatch(addNewContact({name, phone: phoneNumber}));
         event.target.reset();
     }; 
     

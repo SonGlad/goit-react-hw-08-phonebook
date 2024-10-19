@@ -22,7 +22,7 @@ export const Modal = () => {
     const modalRef = useRef(null);
 
 
-    const selectedContact = contacts.find((item) => item.id === itemIDForModal);
+    const selectedContact = contacts.find((item) => item._id === itemIDForModal);
 
 
     useEffect(() => {
@@ -109,7 +109,7 @@ export const Modal = () => {
                                 <p className="title-number">Number:</p>
                             </div>
                             <div className="list-number-container">
-                                <p className="list-number">{selectedContact.number}</p>
+                                <p className="list-number">{selectedContact.phone}</p>
                             </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@ export const Modal = () => {
                         <button
                             className="btn btn-primary btn-block btn-large"
                             type="button"
-                            onClick={() => onDeleteContact(selectedContact.id)}
+                            onClick={() => onDeleteContact(selectedContact._id)}
                             >Delete
                         </button>
                         <button

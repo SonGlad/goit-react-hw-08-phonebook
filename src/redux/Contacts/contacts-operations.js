@@ -42,7 +42,7 @@ export const deleteContactById = createAsyncThunk(
         try{
             const response = await removeContact(id);
             toast.info('Your contact has been successfully deleted');
-            return response.id;
+            return response;
         } 
         catch(error){
             toast.error('Oops. Something went wrong. Please try again.');
@@ -54,12 +54,12 @@ export const deleteContactById = createAsyncThunk(
 
 export const updateContactById = createAsyncThunk(
     'contacts/fetchUpdateContact',
-    async ({id, name, number}, thunkApi) => {
-        const contact = {name, number};
+    async ({id, name, phone}, thunkApi) => {
+        const contact = {name, phone};
         try{
             const response = await updateContact(id, contact);
             toast.info('Your contact has been successfully updated');
-            return response.id;
+            return response;
         } 
         catch(error){
             toast.error('Oops. Something went wrong. Please try again.');

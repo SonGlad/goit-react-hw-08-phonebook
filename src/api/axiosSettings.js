@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-axios.defaults.baseURL = `https://connections-api.herokuapp.com/`;
+axios.defaults.baseURL = `https://phonebook-back-zx2p.onrender.com/`;
 
 
 export const token = {

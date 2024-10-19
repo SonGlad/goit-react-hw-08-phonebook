@@ -4,7 +4,10 @@ import { register, logIn, logOut, refreshCurrentUser } from "./auth-operations";
 
 
 const initialState = {
-    user: {name: null, email: null},
+    user: {
+        name: null, 
+        email: null
+    },
     token: null,
     isLoggedIn: false,
     isLoading: false,
@@ -31,7 +34,8 @@ const authSlice = createSlice({
         })
         .addCase(register.fulfilled, (state, {payload}) => {
             state.isLoading = false;
-            state.user = payload.user;
+            state.user.name = payload.username;
+            state.user.email = payload.email;
             state.token = payload.token;
             state.isLoggedIn = true;
             state.error = null;
@@ -49,7 +53,8 @@ const authSlice = createSlice({
         })
         .addCase(logIn.fulfilled, (state, {payload}) => {
             state.isLoading = false;
-            state.user = payload.user;
+            state.user.name = payload.username;
+            state.user.email = payload.email;
             state.token = payload.token;
             state.isLoggedIn = true;
             state.error = null;
@@ -81,7 +86,8 @@ const authSlice = createSlice({
         })
         .addCase(refreshCurrentUser.fulfilled, (state, { payload }) => {
             state.isLoading = false;
-            state.user = payload;
+            state.user.name = payload.username;
+            state.user.email = payload.email;
             state.isLoggedIn = true;
             state.isRefreshing = false;
             // state.isRefreshed = true; 

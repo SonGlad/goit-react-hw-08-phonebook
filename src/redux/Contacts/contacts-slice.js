@@ -38,7 +38,7 @@ const contactsSlice = createSlice({
       const { contactId } = action.payload;
       const isSelected = state.selectedCheckedCheckbox.includes(contactId);
       if (isSelected) {
-        state.selectedCheckedCheckbox = state.selectedCheckedCheckbox.filter(id => id !== contactId);
+        state.selectedCheckedCheckbox = state.selectedCheckedCheckbox.filter(_id => _id !== contactId);
       } else {
         state.selectedCheckedCheckbox.push(contactId);
       }
@@ -48,9 +48,9 @@ const contactsSlice = createSlice({
       const filteredContactIds = state.contacts.items.filter((contact) => {
         return (
           contact.name.toLowerCase().includes(state.filter.toLowerCase()) ||
-          contact.number.includes(state.filter)
+          contact.phone.includes(state.filter)
         );
-      }).map((contact) => contact.id);
+      }).map((contact) => contact._id);
   
       if (state.selectedCheckedCheckbox.length === filteredContactIds.length) {
         state.selectedCheckedCheckbox = [];
@@ -60,7 +60,7 @@ const contactsSlice = createSlice({
     },
 
     setSelectedItemIDForModal: (state, {payload}) => {
-      state.selectedItemIDForModal = payload;
+      state.selectedItemIDForModal = payload;      
     },
     
     clearSelectedItemIDForModal: (state) => {
@@ -104,8 +104,8 @@ const contactsSlice = createSlice({
     })
     .addCase(deleteContactById.fulfilled, (state, {payload}) => {
       state.contacts.isLoading = false;
-      state.contacts.items = state.contacts.items.filter(({id}) => id !== payload)
-      state.selectedCheckedCheckbox = state.selectedCheckedCheckbox.filter(id => id !== payload);
+      state.contacts.items = state.contacts.items.filter(({_id}) => _id !== payload._id)
+      state.selectedCheckedCheckbox = state.selectedCheckedCheckbox.filter(_id => _id !== payload._id);
     })
     .addCase(deleteContactById.rejected, (state, {payload}) => {
       state.contacts.isLoading = false;
@@ -118,9 +118,9 @@ const contactsSlice = createSlice({
     })
     .addCase(updateContactById.fulfilled, (state, { payload }) => {
         state.contacts.isLoading = false;
-        const updatedIndex = state.contacts.items.findIndex(contact => contact.id === payload.id);
+        const updatedIndex = state.contacts.items.findIndex(contact => contact._id === payload._id);
         if (updatedIndex !== -1) {
-            state.contacts.items[updatedIndex] = payload;
+          state.contacts.items[updatedIndex] = payload;
         }
     })
     .addCase(updateContactById.rejected, (state, { payload }) => {

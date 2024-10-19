@@ -18,7 +18,7 @@ export const Contacts = () => {
     const filteredContacts = contacts.filter(contact => {
         return (
             contact.name.toLowerCase().includes(filter.toLowerCase()) ||
-            contact.number.includes(filter)
+            contact.phone.includes(filter)
         );
     });
   

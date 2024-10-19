@@ -26,14 +26,14 @@ export const FormUpdate = (props) => {
     const optionListRef = useRef(null); 
 
 
-
+    
     // INITIAL DATA RENDER FOR INPUT FIELDS//
-    const selectedContact = contacts.find((item) => item.id === itemIDForModal);
-    const selectedNumber = selectedContact.number.split("-").slice(-4).join("");
+    const selectedContact = contacts.find((item) => item._id === itemIDForModal);
+    const selectedNumber = selectedContact.phone.split("-").slice(-4).join("");
 
     useEffect(() => {
         const setSelectedCountry = () => {
-            const selectedCode = selectedContact.number.split("-").slice(0, 1).join("");
+            const selectedCode = selectedContact.phone.split("-").slice(0, 1).join("");
             const selectedCountry = countryCodes.find((country) => {
               const countryCode = country.split(':')[1].trim();
               return countryCode === selectedCode;
@@ -46,7 +46,7 @@ export const FormUpdate = (props) => {
         };
         
         setSelectedCountry();
-    }, [selectedContact.number]);
+    }, [selectedContact.phone]);
     // /////////////////////////////////////
 
 
@@ -103,29 +103,30 @@ export const FormUpdate = (props) => {
         event.preventDefault();
         const code = event.target.country.value;
         const name = event.target.name.value;
-        const number = event.target.number.value;
+        const phone = event.target.number.value;
+      
 
-
-        if (!/^\d+$/.test(number)) {
+        if (!/^\d+$/.test(phone)) {
             toast.warning('Please enter a valid number.');
             return;
         }
 
         const codeValue = code.split(":")[1].trim();
-        const digits = number.split("");
+        const digits = phone.split("");
         const formattedNumber = `${digits.slice(0, 2).join('')}-${digits.slice(2, 5).join('')}-${digits.slice(5, 7).join('')}-${digits.slice(7, 9).join('')}`;
         const phoneNumber = `${codeValue }-${formattedNumber}`;
+       
 
 
-        const existedContact = {name: selectedContact.name, number: selectedContact.number}
+        const existedContact = {name: selectedContact.name, phone: selectedContact.phone}
         const contactData = {
-            id: selectedContact.id,
+            id: selectedContact._id,
             name,
-            number: phoneNumber
+            phone: phoneNumber
         };
+        
 
-
-        if (contactData.name === existedContact.name && contactData.number === existedContact.number) {
+        if (contactData.name === existedContact.name && contactData.phone === existedContact.phone) {
             toast.warning(`You are trying to update unchanged data.`);
             return
         }

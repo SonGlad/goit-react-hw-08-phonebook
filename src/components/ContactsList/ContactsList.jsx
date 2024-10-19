@@ -13,26 +13,26 @@ export const ContactsList = ({
     checkbox, 
     handleCheckboxChange, 
     handleClickContainer}) => {
-
+       
 
     return(
         <ContactsStyle>
-            {filteredContacts.map(({id, name, number}) => (
-                <li className="list" key={id}>
+            {filteredContacts.map(({_id, name, phone}) => (
+                <li className="list" key={_id}>
                     <div className='checkbox-container'>
                         <input className="checkbox"
                         type="checkbox"
                         name="user_agreement" 
-                        id={id}
-                        checked={checkbox.includes(id)}
-                        onChange={() => handleCheckboxChange(id)}
+                        id={_id}
+                        checked={checkbox.includes(_id)}
+                        onChange={() => handleCheckboxChange(_id)}
                         />
                         <div className="custom-checkbox">
                             <CheckBoxIcon className="custom-checkbox-before" width="20" height="20"/>
                             <CheckedIcon className="custom-checkbox-after" width="20" height="20"/>
                         </div>
                     </div>
-                    <div className='container-for-modal' id={id} onClick={() => handleClickContainer(id)}>
+                    <div className='container-for-modal' id={_id} onClick={() => handleClickContainer(_id)}>
                         <div className="user-container">
                             <div className="cont-sum">
                                 <UserIcon className="icon" width="30" height="25"/>
@@ -48,16 +48,16 @@ export const ContactsList = ({
                                 <p className="title-number">Number:</p>
                             </div>
                             <div className="list-number-container">
-                                <p className="list-number">{number}</p>
+                                <p className="list-number">{phone}</p>
                             </div>
                         </div>
                     </div>
                     <div className="button-container">
-                    {checkbox.includes(id) && (
+                    {checkbox.includes(_id) && (
                         <button
                             className="btn btn-primary btn-block btn-large"
                             type="button"
-                            onClick={() => onDeleteContact(id)}
+                            onClick={() => onDeleteContact(_id)}
                             >Delete
                         </button>
                         )}
@@ -73,9 +73,9 @@ export const ContactsList = ({
 ContactsList.propTypes ={
     filteredContacts: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.string.isRequired,
+            _id: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
-            number: PropTypes.string.isRequired,
+            phone: PropTypes.string.isRequired,
         })
     ),
     checkbox: PropTypes.arrayOf(PropTypes.string.isRequired),
